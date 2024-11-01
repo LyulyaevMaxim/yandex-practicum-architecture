@@ -16,31 +16,9 @@ export default defineConfig({
                     // requiredVersion: dependencies.react,
                     singleton: true,
                 },
+                'react-singleton-context': { singleton: true, eager: true },
             },
         }),
         react(),
-        /*federation({
-          name: 'app2',
-          manifest: true,
-          remotes: {
-            esm_remote: {
-              type: "module",
-              name: "esm_remote",
-              entry: "https://[...]/remoteEntry.js",
-            },
-            var_remote: "var_remote@https://[...]/remoteEntry.js",
-          },
-          exposes: {
-            './button': './src/App',
-          },
-          shared: {
-            react: {
-              singleton: true,
-            },
-            'react/': {
-              singleton: true,
-            },
-          },
-        }),*/
     ],
 })

@@ -2,7 +2,10 @@ import React from 'react';
 import Card from './Card';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
+
+
 const CardsApp = React.lazy(() => import('app1/cards-app').catch(() => <p>Не смогли загрузить</p>))
+
 function Main({ cards, onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike, onCardDelete }) {
   const currentUser = React.useContext(CurrentUserContext);
 

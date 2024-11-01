@@ -19,9 +19,9 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       shared: {
         react: {
-          // requiredVersion: dependencies.react,
           singleton: true,
         },
+        'react-singleton-context': { singleton: true, eager: true },
       },
     }),
     react()
