@@ -1,14 +1,44 @@
 import * as React from 'react'
-import {useStoreCards} from "../../../shared/cards/StoreCardsContext";
+import {TCard, useStoreCards} from "./storeCards";
+import {CardGrid} from "./components/CardGrid/CardGrid";
+import { AddPlacePopup } from './components/AddPlacePopup'
+import {apiCards} from "./api";
 
-
-function App() {
+function WidgetCards({PopupWithForm}: { PopupWithForm: any }) {
     const { storeCards} = useStoreCards()
+
+    React.useEffect(() => {
+        apiCards
+            .getCardList()
+            .then(storeCards.setCards)
+            .catch(console.log);
+    }, []);
+
+    function handleAddPlaceSubmit(newCard: TCard) {
+        apiCards
+            .addCard(newCard)
+            .then((newCardFull) => {
+                storeCards.setCards(prevCards => [newCardFull, ...prevCards]);
+                modalAddPlaceClose();
+            })
+            .catch((err) => console.log(err));
+    }
+
+    function modalAddPlaceClose() {
+        storeCards.setIsAddPlacePopupOpen(false)
+    }
+
     return (
         <>
-            <h1 style={{color: 'red'}}>(Remote) Total cards: {storeCards.cards.length}</h1>
+            <CardGrid />
+            <AddPlacePopup
+                    PopupWithForm={PopupWithForm}
+                    isOpen={storeCards.isAddPlacePopupOpen}
+                    onAddPlace={handleAddPlaceSubmit}
+                    onClose={modalAddPlaceClose}
+            />
         </>
     )
 }
 
-export default App
+export default WidgetCards

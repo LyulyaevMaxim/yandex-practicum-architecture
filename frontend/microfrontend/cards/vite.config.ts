@@ -9,6 +9,7 @@ export default defineConfig({
             filename: 'remoteEntry.js',
             exposes: {
                 './cards-app': './src/App.tsx',
+                './store': './src/storeCards.tsx',
             },
             remotes: {},
             shared: {

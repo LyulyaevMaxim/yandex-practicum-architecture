@@ -12,7 +12,7 @@
 @import url('./__label/popup__label.css');
 @import url('./__error/popup__error.css');
 @import url('./__error/_visible/popup__error_visible.css');
-@import url('./_type/popup_type_remove-card.css');
+/*@import url('./_type/popup_type_remove-card.css');*/
 @import url('./_type/popup_type_edit-avatar.css');
 @import url('./__icon/popup__icon.css');
 @import url('./__status-message/popup__status-message.css');

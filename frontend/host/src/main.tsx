@@ -1,5 +1,5 @@
 import * as React from 'react'
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom'
 import 'react-singleton-context';
 import './index.css';

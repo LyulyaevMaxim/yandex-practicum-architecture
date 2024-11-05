@@ -1,19 +1,19 @@
-import React from 'react';
-import PopupWithForm from './PopupWithForm';
+import * as React from 'react';
 
-function AddPlacePopup({ isOpen, onAddPlace, onClose }) {
+function AddPlacePopup({ isOpen, onAddPlace, onClose, PopupWithForm }: any) {
+
   const [name, setName] = React.useState('');
   const [link, setLink] = React.useState('');
 
-  function handleNameChange(e) {
+  function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
     setName(e.target.value);
   }
 
-  function handleLinkChange(e) {
+  function handleLinkChange(e: React.ChangeEvent<HTMLInputElement>) {
     setLink(e.target.value);
   }
 
-  function handleSubmit(e) {
+  function handleSubmit(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
 
     onAddPlace({
@@ -29,7 +29,7 @@ function AddPlacePopup({ isOpen, onAddPlace, onClose }) {
       <label className="popup__label">
         <input type="text" name="name" id="place-name"
                className="popup__input popup__input_type_card-name" placeholder="Название"
-               required minLength="1" maxLength="30" value={name} onChange={handleNameChange} />
+               required minLength={1} maxLength={30} value={name} onChange={handleNameChange} />
         <span className="popup__error" id="place-name-error"></span>
       </label>
       <label className="popup__label">
@@ -42,4 +42,4 @@ function AddPlacePopup({ isOpen, onAddPlace, onClose }) {
   );
 }
 
-export default AddPlacePopup;
+export { AddPlacePopup }
